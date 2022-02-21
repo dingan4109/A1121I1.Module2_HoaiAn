@@ -1,4 +1,4 @@
-package ss1.ss1_javaIntro_thuchanh;
+package ss1_JavaIntro.ss1_javaIntro_thuchanh;
 
 import java.util.Scanner;
 

@@ -1,7 +1,6 @@
-package ss1.ss1_javaIntro_thuchanh;
+package ss1_JavaIntro.ss1_javaIntro_thuchanh;
 
 import java.util.Scanner;
-import java.util.function.DoubleToIntFunction;
 
 public class FindDaysInMonth {
     public static void main(String[] args) {

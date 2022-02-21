@@ -1,4 +1,4 @@
-package ss1.ss1_javaIntro_baitap;
+package ss1_JavaIntro.ss1_javaIntro_baitap;
 
 import java.util.Scanner;
 

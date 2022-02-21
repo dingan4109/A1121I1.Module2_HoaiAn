@@ -1,4 +1,4 @@
-package ss1.ss1_javaIntro_baitap;
+package ss1_JavaIntro.ss1_javaIntro_baitap;
 
 import java.util.Scanner;
 
@@ -64,14 +64,14 @@ public class ReadNumber {
             }else if(number<1000) {
                switch (number/100) {
                    case 1: first_digit = "one hundred";break;
-                   case 2: first_digit = "two hundred";break;
-                   case 3: first_digit = "three hundred";break;
-                   case 4: first_digit = "four hundred";break;
-                   case 5: first_digit = "five hundred";break;
-                   case 6: first_digit = "six hundred";break;
-                   case 7: first_digit = "seven hundred";break;
-                   case 8: first_digit = "eigh hundred";break;
-                   case 9: first_digit = "nine hundred";break;
+                   case 2: first_digit = "two hundreds";break;
+                   case 3: first_digit = "three hundreds";break;
+                   case 4: first_digit = "four hundreds";break;
+                   case 5: first_digit = "five hundreds";break;
+                   case 6: first_digit = "six hundreds";break;
+                   case 7: first_digit = "seven hundreds";break;
+                   case 8: first_digit = "eigh hundreds";break;
+                   case 9: first_digit = "nine hundreds";break;
                }
                switch ((number/10)%10) {
                    case 2: second_digit = "twenty";break;
@@ -93,7 +93,10 @@ public class ReadNumber {
                    case 7: third_digit = "seven"; break;
                    case 8: third_digit = "eight"; break;
                    case 9: third_digit = "night"; break;
-               } result = first_digit + " and " + second_digit + third_digit;
+               }
+               if(number%100 == 0) {
+                   result = first_digit;
+               }else {result = first_digit + " and " + second_digit + third_digit;}
            } else result = "Out of ability";
         }
         System.out.println(result);
