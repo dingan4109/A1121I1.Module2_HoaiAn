@@ -21,16 +21,10 @@ public class FindGcd {
             if(a==0) gcd = b;
                 else gcd = a;
         }else {
-            if (a < b) {
-                for (int i = 1; i <= a; i++) {
-                    if (a % i == 0 && b % i == 0) gcd = i;
-                }
-            } else {
-                for (int i = 1; i <= b; i++) {
+                for (int i = 1; i <= Math.min(a,b); i++) {
                     if (a % i == 0 && b % i == 0) gcd = i;
                 }
             }
-        }
 
         if(gcd == -1) {
             System.out.println("There is no GCD between " + a + " and " + b);
