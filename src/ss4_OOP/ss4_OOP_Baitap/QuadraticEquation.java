@@ -1,9 +1,9 @@
-package ss4_OOP.ss4_OOP_Thuchanh;
+package ss4_OOP.ss4_OOP_Baitap;
 
 public class QuadraticEquation {
-    private double a;
-    private double b;
-    private double c;
+    private final double a;
+    private final double b;
+    private final double c;
 
     public QuadraticEquation(double a, double b, double c) {
         this.a = a;
@@ -28,9 +28,18 @@ public class QuadraticEquation {
         return delta;
     }
 
+    public double getRoot() {
+        return -this.b/2*this.a;
+    }
+
     public double getRoot1() {
         double delta = getDiscriminant();
-        double root1 = 
-
+        double root1 = (-this.b + Math.sqrt(delta))/(2*this.a);
+        return root1;
+    }
+    public double getRoot2() {
+        double delta = getDiscriminant();
+        double root2 = (-this.b - Math.sqrt(delta))/(2*this.a);
+        return root2;
     }
 }
