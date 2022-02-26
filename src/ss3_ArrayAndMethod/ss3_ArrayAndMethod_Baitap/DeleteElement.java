@@ -11,17 +11,23 @@ public class DeleteElement {
         int element = input.nextInt();
 
         int[] array = {1,2,3,4,0,0,8,9};
-        boolean check = false;
-        for(int i =0;i<array.length;i++) {
+        int index_del=-1;
+        for(int i = 0;i<array.length;i++) {
             if(array[i] == element) {
-                for(int j = 0;j<array.length-i-1;j++) {
-                    array[i+j] = array[i+1+j];
-                } array[array.length-1] = 0;
-                check = true;
+                index_del = i; break;
             }
         }
-        if(check) System.out.println("New array is: "+Arrays.toString(array));
-        else System.out.println("Element is not found");
+
+        int[] array2 = new int[array.length-1];
+        if(index_del!= -1) {
+            int j = 0;
+            for (int i = 0;i<array.length;i++) {
+                if(i==index_del) {continue;}
+                array2[j++] = array[i];
+            } System.out.println("New array: " + Arrays.toString(array2));
+        }else {
+            System.out.println("Element is not found");
+        }
 
     }
 }

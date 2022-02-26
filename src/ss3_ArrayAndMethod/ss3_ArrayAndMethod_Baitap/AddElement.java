@@ -19,17 +19,21 @@ public class AddElement {
         System.out.println("Input index to add");
         int inputIndex = input.nextInt();
 
-
         if(inputIndex<0 || inputIndex > array.length-1) {
             System.out.println("Can't add element into array");
         }else {
             System.out.println("Input element to add");
             int inputElement = input.nextInt();
 
-            for(int i = 1;i<array.length-inputIndex;i++) {
-                array[array.length-i] = array[array.length-1-i];
-            }array[inputIndex] = inputElement;
-            System.out.println("New array is: "+Arrays.toString(array));
+            int[] array2 = new int[array.length+1];
+            int j = 0;
+            for(int i=0;i<array.length;i++) {
+                if(i == inputIndex) {
+                    array2[i] = inputElement;
+                    j++;
+                }
+                array2[j++] = array[i];
+            } System.out.println("New array is: "+Arrays.toString(array2));
         }
     }
 }
