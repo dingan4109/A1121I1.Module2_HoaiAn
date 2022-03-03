@@ -41,10 +41,13 @@ public class MovablePoint  extends Point{
     }
 
     public String toString() {
-        return "("+getX() + "," + getY() +") , speed = (" + xSpeed + "," +ySpeed;
+        return "("+getX() + "," + getY() +") , speed = (" + xSpeed + "," +ySpeed +")";
     }
 
     public MovablePoint move() {
+    setX(getX()+xSpeed);
+    setY(getY()+ySpeed);
+    return this;
 
     }
 

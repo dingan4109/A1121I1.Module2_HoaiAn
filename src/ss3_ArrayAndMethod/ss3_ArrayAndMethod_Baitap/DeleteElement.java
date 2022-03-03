@@ -5,24 +5,27 @@ import java.util.Scanner;
 
 public class DeleteElement {
     public static void main(String[] args) {
+        //Chỉ xóa được phần từ 1 lần duy nhất, không xử lý được trường hợp xóa hết toàn bộ các phần tử giống với
+        // input element
         Scanner input = new Scanner(System.in);
 
         System.out.println("Input element to delete");
         int element = input.nextInt();
 
         int[] array = {1,2,3,4,0,0,8,9};
-        int index_del=-1;
+        int indexDel=-1;
         for(int i = 0;i<array.length;i++) {
             if(array[i] == element) {
-                index_del = i; break;
+                indexDel = i; break;
             }
         }
 
+
         int[] array2 = new int[array.length-1];
-        if(index_del!= -1) {
+        if(indexDel!= -1) {
             int j = 0;
             for (int i = 0;i<array.length;i++) {
-                if(i==index_del) {continue;}
+                if(i==indexDel) {continue;}
                 array2[j++] = array[i];
             } System.out.println("New array: " + Arrays.toString(array2));
         }else {

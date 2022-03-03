@@ -34,7 +34,7 @@ public class SumColumn {
         }
         System.out.println("Input column to calculate");
         int colNo2 = input.nextInt();
-        sumColumn(array2,colNo2);
+        SumColumn.sumColumn(array2,colNo2);
     }
 
     static void sumColumn(int[][] array,int col) {

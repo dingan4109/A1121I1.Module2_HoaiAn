@@ -15,7 +15,7 @@ public class testStopWatch {
         int[] array2 = new int[array.length];
 
         Date start = obj.getStartTime();
-        System.out.println(start);
+        System.out.println(start.getTime());
 
         for(int i = 0; i<array.length-1;i++) {
             int index = i;
@@ -29,7 +29,7 @@ public class testStopWatch {
         System.out.println("Array is " + Arrays.toString(array));
 
         Date end = obj.getEndTime();
-        System.out.println(end);
-        System.out.println("Elapsed time is " + obj.getElapsedTime(start,end));
+        System.out.println(end.getTime());
+        System.out.println("Elapsed time is " + obj.getElapsedTime());
     }
 }

@@ -19,12 +19,15 @@ public class StopWatch {
         return endTime;
     }
 
-    public void start(Date now) {
-        this.startTime = now;
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
     }
 
-    public long getElapsedTime(Date start, Date end) {
-             long elapsedTime = end.getTime() - start.getTime();
-        return elapsedTime;
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
+    }
+
+    public long getElapsedTime() {
+             return this.endTime.getTime() - this.startTime.getTime();
     }
 }
