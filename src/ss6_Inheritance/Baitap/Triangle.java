@@ -44,6 +44,18 @@ public class Triangle extends Shape {
         return side1 + side2 + side3;
     }
     public double getArea() {
-        return
+       double p = getPerimeter()/2;
+       return Math.sqrt(p*(p-side1)*(p-side2)*(p-side3));
     }
+
+    @Override
+    public String toString() {
+        return "A Triangle with side are " + side1 + ", " + side2 + ", " + side3 + " is subclass of " + super.toString();
+    }
+
+    //JustFYI:Độ dài mỗi cạnh lớn hơn hiệu độ dài hai cạnh kia và nhỏ hơn tổng độ dài của chúng (bất đẳng thức tam
+    // giác) => Viết method test 3 side nhập vào có hợp lệ để tạo thành ta giác không
+    // if((side1+side2)>side3 && (side1+side3)>side2 && (side2+side3)>side1) {
+    // return true;
+    // }else {return false;}
 }
