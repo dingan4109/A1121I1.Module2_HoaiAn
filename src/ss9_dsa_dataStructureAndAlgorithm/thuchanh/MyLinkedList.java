@@ -24,17 +24,31 @@ public class MyLinkedList {
     }
 
     public void add(int index, Object data) {
-        Node preNode = null; //= holder
-        Node currentNode = head;
-        Node newNode = new Node(data);
-        for(int i = 1; i <= index;i++) {
-            preNode = currentNode;
-            currentNode = currentNode.next;
-        }
-        newNode.next = currentNode;
-        preNode.next = newNode;
+        if(index < 1) {
+            addFirst(data);
+        } else  if (index >= numNodes) {
+            Node currentNode = head;
+            Node newNode = new Node(data);
+            for(int i = 0; i < numNodes; i++) {
+                currentNode = currentNode.next;
+            }
+            newNode.next = null;
+            currentNode.next = newNode;
 
-        numNodes++;
+            numNodes++;
+        }else {
+            Node preNode = null; //= holder
+            Node currentNode = head;
+            Node newNode = new Node(data);
+            for(int i = 0; i <= index;i++) {
+                preNode = currentNode;
+                currentNode = currentNode.next;
+            }
+            newNode.next = currentNode;
+            preNode.next = newNode;
+
+            numNodes++;
+        }
     }
 
     public void addFirst(Object data) {

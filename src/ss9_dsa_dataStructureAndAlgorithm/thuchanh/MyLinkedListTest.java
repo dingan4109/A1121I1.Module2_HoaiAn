@@ -12,7 +12,7 @@ public class MyLinkedListTest {
         ll.addFirst(15);
 
         ll.add(4,9);
-        ll.add(4,9);
+        ll.add(4,99);
         ll.get(8);
         System.out.println(ll.getNumNodes());
            ll.printList();
