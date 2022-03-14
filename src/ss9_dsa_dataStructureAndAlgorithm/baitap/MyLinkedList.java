@@ -150,14 +150,10 @@ public class MyLinkedList<E> {
         return get(numNodes-1);
     }
 
-    //PENDING
-//    public void clear() {
-//        Node currentNode = head;
-//        for (int i = 0; i<numNodes; i++) {
-//            remove(i);
-//        }
-//        numNodes = 0;
-//    }
+    public void clear() {
+        numNodes = 0;
+        head = null;
+    }
 
     public void printList() {
             for(int i = 0; i<numNodes;i++) {
