@@ -2,13 +2,12 @@ package case_study.services;
 
 public class FacilityServiceImpl implements FacilityService{
     @Override
-    public String displayListMaintenance() {
-        return null;
+    public void displayListMaintenance() {
+
     }
 
     @Override
-    public String displayListFacility() {
-        return null;
+    public void displayListFacility() {
     }
 
     @Override
@@ -16,10 +15,6 @@ public class FacilityServiceImpl implements FacilityService{
 
     }
 
-    @Override
-    public String displayInfo() {
-        return null;
-    }
 
     @Override
     public void returnMainMenu() {

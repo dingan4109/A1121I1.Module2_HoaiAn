@@ -2,8 +2,8 @@ package case_study.services;
 
 public class CustomerServiceImpl implements CustomerService{
     @Override
-    public String displayListCustomer() {
-        return null;
+    public void displayListCustomer() {
+
     }
 
     @Override
@@ -16,10 +16,6 @@ public class CustomerServiceImpl implements CustomerService{
 
     }
 
-    @Override
-    public String displayInfo() {
-        return null;
-    }
 
     @Override
     public void returnMainMenu() {

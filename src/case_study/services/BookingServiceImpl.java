@@ -2,8 +2,8 @@ package case_study.services;
 
 public class BookingServiceImpl implements BookingService{
     @Override
-    public String displayListBooking() {
-        return null;
+    public void displayListBooking() {
+
     }
 
     @Override
@@ -11,10 +11,6 @@ public class BookingServiceImpl implements BookingService{
 
     }
 
-    @Override
-    public String displayInfo() {
-        return null;
-    }
 
     @Override
     public void returnMainMenu() {
