@@ -1,19 +1,19 @@
 package case_study.services;
 
 public class BookingServiceImpl implements BookingService{
+
     @Override
-    public void displayListBooking() {
+    public void displayList() {
 
     }
 
     @Override
-    public void addNewBooking() {
+    public void addNew() {
 
     }
 
-
     @Override
-    public void returnMainMenu() {
+    public void edit() {
 
     }
 }

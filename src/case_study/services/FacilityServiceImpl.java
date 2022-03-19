@@ -6,18 +6,19 @@ public class FacilityServiceImpl implements FacilityService{
 
     }
 
+
     @Override
-    public void displayListFacility() {
+    public void displayList() {
+
     }
 
     @Override
-    public void addNewFacility() {
+    public void addNew() {
 
     }
 
-
     @Override
-    public void returnMainMenu() {
+    public void edit() {
 
     }
 }

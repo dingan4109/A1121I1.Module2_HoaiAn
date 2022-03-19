@@ -83,7 +83,7 @@ public class FuramaController {
 
     private static void employeeManagementMenu() {
         EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
-        int choose = -1;
+        int choose = 4;
         do{
             System.out.println(DISPLAY_LIST_EMPLOYEES);
             System.out.println(ADD_NEW_EMPLOYEE);
@@ -93,20 +93,27 @@ public class FuramaController {
             choose = input.nextInt();
             switch (choose) {
                 case 1:
-                    employeeService.displayListEmployee();
+                    employeeService.displayList();
                     break;
                 case 2:
-                    employeeService.addNewEmployee();
+                    employeeService.addNew();
                     break;
                 case 3:
-                    employeeService.editEmployee();
+                    employeeService.edit();
+                    break;
+                case 4:
+                    check();
                     break;
             }
-        }while(choose != -1);
+        }while(choose != 4);
 
     }
 
     public static void main(String[] args) {
+        check();
+    }
+
+    public static void check() {
         Scanner input = new Scanner(System.in);
         int choose = -1;
         do{

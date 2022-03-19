@@ -1,24 +1,19 @@
 package case_study.services;
 
 public class ContractServiceImpl implements ContractService{
+
     @Override
-    public void displayListContract() {
+    public void displayList() {
 
     }
 
     @Override
-    public void addNewContract() {
+    public void addNew() {
 
     }
 
     @Override
-    public void editContract() {
-
-    }
-
-
-    @Override
-    public void returnMainMenu() {
+    public void edit() {
 
     }
 }

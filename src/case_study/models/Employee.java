@@ -23,10 +23,6 @@ public class Employee extends Person{
 
     public Employee() {}
 
-    public Employee(String id) {
-        super(id);
-    }
-
     public Employee(String id, String fullName, String birthday, String gender, int idCardNumber, int phoneNumber,
                     String email, String educationLevel, String position, int salary) {
         super(id, fullName, birthday, gender, idCardNumber, phoneNumber, email);

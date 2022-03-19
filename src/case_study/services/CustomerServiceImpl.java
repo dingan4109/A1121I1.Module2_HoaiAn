@@ -1,24 +1,19 @@
 package case_study.services;
 
 public class CustomerServiceImpl implements CustomerService{
+
     @Override
-    public void displayListCustomer() {
+    public void displayList() {
 
     }
 
     @Override
-    public void addNewCustomer() {
+    public void addNew() {
 
     }
 
     @Override
-    public void editCustomer() {
-
-    }
-
-
-    @Override
-    public void returnMainMenu() {
+    public void edit() {
 
     }
 }

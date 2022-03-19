@@ -8,15 +8,8 @@ public class EmployeeServiceImpl implements EmployeeService{
     static List<Employee> employeeList = new ArrayList<>();
     static Scanner input = new Scanner(System.in);
 
-    @Override
-    public void displayListEmployee() {
-      for(Employee i : employeeList) {
-          System.out.println(i.toString());
-      }
-    }
 
-    @Override
-    public void addNewEmployee() {
+    public Employee getEmployee() {
         System.out.println("Input id: ");
         String id = input.nextLine();
 
@@ -35,7 +28,6 @@ public class EmployeeServiceImpl implements EmployeeService{
         System.out.println("Input phone number: ");
         int phoneNumber = Integer.parseInt(input.nextLine());
 
-
         System.out.println("Input email: ");
         String email = input.nextLine();
 
@@ -48,22 +40,36 @@ public class EmployeeServiceImpl implements EmployeeService{
         System.out.println("Input salary: ");
         int salary = Integer.parseInt(input.nextLine());
 
-        Employee employee = new Employee(id,fullName,birthday,gender,idCardNumber,phoneNumber,email,educationLevel, position,salary);
+        return new Employee(id, fullName, birthday, gender, idCardNumber, phoneNumber, email, educationLevel, position, salary);
+    }
 
+
+    @Override
+    public void displayList() {
+        for(Employee i : employeeList) {
+            System.out.println(i.toString());
+        }
+    }
+
+    @Override
+    public void addNew() {
+        Employee employee = getEmployee();
         employeeList.add(employee);
-
     }
 
     @Override
-    public void editEmployee() {
+    public void edit() {
         System.out.println("Input employee id to edit");
-        String id = input.nextLine();
-        Employee searchEmployee = new Employee(id);
-        //pending
-    }
+        String checkId = input.nextLine();
 
-    @Override
-    public void returnMainMenu() {
-
+        for(int i = 0; i<employeeList.size();i++) {
+            if(employeeList.get(i).getId().contains(checkId)) {
+                System.out.println("Input update information");
+                Employee employee = getEmployee();
+                employeeList.set(i,employee);
+            }else {
+                System.out.println("Employee is not found");
+            }
+        }
     }
 }
