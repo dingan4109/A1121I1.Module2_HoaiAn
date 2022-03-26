@@ -18,9 +18,6 @@ public class TestTriangle {
         if((x+y)>z && (x+z)>y && (y+z)>x) {
             Triangle b = new Triangle(x,y,z);
             System.out.println(b);
-
-            System.out.println(b.getPerimeter());
-            System.out.println(b.getArea());
         } else System.out.println("Not valid sides of a Triangle");
 
     }

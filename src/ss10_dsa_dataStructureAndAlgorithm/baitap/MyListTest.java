@@ -1,8 +1,6 @@
-package ss9_dsa_dataStructureAndAlgorithm.baitap;
+package ss10_dsa_dataStructureAndAlgorithm.baitap;
 
 import ss6_Inheritance.Thuchanh.Shape;
-
-import java.util.Arrays;
 
 public class MyListTest {
     public static void main(String[] args) {

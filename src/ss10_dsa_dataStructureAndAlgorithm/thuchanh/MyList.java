@@ -1,6 +1,4 @@
-package ss9_dsa_dataStructureAndAlgorithm.thuchanh;
-
-import java.util.Arrays;
+package ss10_dsa_dataStructureAndAlgorithm.thuchanh;
 
 public class MyList<E> {
     private int size = 0;

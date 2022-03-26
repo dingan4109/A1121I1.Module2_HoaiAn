@@ -1,4 +1,4 @@
-package ss9_dsa_dataStructureAndAlgorithm.baitap;
+package ss10_dsa_dataStructureAndAlgorithm.baitap;
 
 import java.util.Arrays;
 

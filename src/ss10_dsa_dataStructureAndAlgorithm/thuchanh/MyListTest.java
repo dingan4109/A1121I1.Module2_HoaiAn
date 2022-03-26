@@ -1,4 +1,4 @@
-package ss9_dsa_dataStructureAndAlgorithm.thuchanh;
+package ss10_dsa_dataStructureAndAlgorithm.thuchanh;
 
 import java.util.Arrays;
 

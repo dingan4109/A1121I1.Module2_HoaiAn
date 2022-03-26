@@ -1,6 +1,4 @@
-package ss9_dsa_dataStructureAndAlgorithm.baitap;
-
-import ss6_Inheritance.Thuchanh.Shape;
+package ss10_dsa_dataStructureAndAlgorithm.baitap;
 
 public class MyLinkedListTest {
     public static void main(String[] args) {

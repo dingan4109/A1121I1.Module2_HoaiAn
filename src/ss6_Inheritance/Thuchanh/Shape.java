@@ -1,5 +1,7 @@
 package ss6_Inheritance.Thuchanh;
 
+import java.util.Objects;
+
 public class Shape {
     private String color = "green";
     private boolean filled = true;
@@ -34,5 +36,19 @@ public class Shape {
         return filled == true ? "A Shape with color of " + color + " and filled" : "A Shape with color of " + color +
                 " and " +
                 "not filled";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Shape shape = (Shape) o;
+        return filled == shape.filled &&
+                Objects.equals(color, shape.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(color, filled);
     }
 }

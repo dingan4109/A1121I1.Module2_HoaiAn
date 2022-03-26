@@ -1,4 +1,4 @@
-package ss10_stack_queue.baitap;
+package ss11_stack_queue.baitap;
 
 import java.util.Arrays;
 import java.util.HashMap;

@@ -1,5 +1,6 @@
 package case_study.controllers;
 
+import case_study.services.EmployeeService;
 import case_study.services.EmployeeServiceImpl;
 
 import java.util.Scanner;
@@ -25,7 +26,7 @@ public class FuramaController {
     public static final String EDIT_CONTRACTS = "5. Edit contracts";
     public static final String RETURN_TO_MAIN_MENU = "6. Return to main menu";
     public static final String DISPLAY_LIST_CUSTOMERS_USE_SERVICE = "1. Display list customers use service";
-    public static final String DISPLAY_LIST_CUSTOMERS_GET_VOICHER = "1. Display list customers get voicher";
+    public static final String DISPLAY_LIST_CUSTOMERS_GET_VOICHER = "1. Display list customers get voucher";
     public static final String RETURN_MAIN_MENU3 = "3. Return main menu";
 
     static void displayMainMenu(int choose) {
@@ -82,7 +83,8 @@ public class FuramaController {
     }
 
     private static void employeeManagementMenu() {
-        EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
+        //DI
+        EmployeeService employeeService = new EmployeeServiceImpl();
         int choose = 4;
         do{
             System.out.println(DISPLAY_LIST_EMPLOYEES);
@@ -104,8 +106,11 @@ public class FuramaController {
                 case 4:
                     check();
                     break;
+                default:
+                    System.out.println("Input again");
             }
         }while(choose != 4);
+
 
     }
 
@@ -115,7 +120,7 @@ public class FuramaController {
 
     public static void check() {
         Scanner input = new Scanner(System.in);
-        int choose = -1;
+        int choose = 6;
         do{
             System.out.println("1. Display list employees");
             System.out.println("2. Customer Management");
@@ -126,6 +131,6 @@ public class FuramaController {
             System.out.println("\nPlease choose function");
             choose = input.nextInt();
             displayMainMenu(choose);
-        } while(choose != -1);
+        } while(choose != 6);
     }
 }

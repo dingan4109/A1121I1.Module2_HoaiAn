@@ -4,7 +4,6 @@ public class Cylinder extends Circle {
     private double height;
 
     public Cylinder() {
-
     }
 
     public Cylinder(double radius, String color, double height) {
@@ -23,6 +22,7 @@ public class Cylinder extends Circle {
     public double getVolume() {
         return Math.PI*getRadius()*2*height;
     }
+
 
     @Override
     public String toString() {

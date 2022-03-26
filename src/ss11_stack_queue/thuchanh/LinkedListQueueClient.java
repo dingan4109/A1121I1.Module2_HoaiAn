@@ -1,11 +1,6 @@
-package ss10_stack_queue.thuchanh;
+package ss11_stack_queue.thuchanh;
 
-import ss9_dsa_dataStructureAndAlgorithm.baitap.MyLinkedList;
-
-import java.util.Deque;
-import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.Queue;
 
 public class LinkedListQueueClient {
     public static void main(String[] args) {

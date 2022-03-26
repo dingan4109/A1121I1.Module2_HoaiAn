@@ -2,7 +2,7 @@ package case_study.models;
 
 public abstract class Facility {
     private String serviceName;
-    private double usedAre;
+    private double usedArea;
     private double rate;
     private int standardQuantity;
     private String rentalType;
@@ -15,7 +15,7 @@ public abstract class Facility {
     public Facility() {}
     public Facility(String serviceName, double usedArea, double rate, int standardQuantity, String rentalType){
         this.serviceName = serviceName;
-        this.usedAre = usedArea;
+        this.usedArea = usedArea;
         this.rate = rate;
         this.standardQuantity = standardQuantity;
         this.rentalType = rentalType;
@@ -30,11 +30,11 @@ public abstract class Facility {
     }
 
     public double getUsedAre() {
-        return usedAre;
+        return usedArea;
     }
 
     public void setUsedAre(double usedAre) {
-        this.usedAre = usedAre;
+        this.usedArea = usedAre;
     }
 
     public double getRate() {

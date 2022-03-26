@@ -1,4 +1,4 @@
-package ss10_stack_queue.thuchanh;
+package ss11_stack_queue.thuchanh;
 
 public class GenericStackClient {
     public static void stackOfString() {
