@@ -2,19 +2,17 @@ package case_study.models;
 
 public class Contract {
     private String contractNumber;
-    private String bookingCode;
+    private Booking booking;
     private int deposit;
     private int totalBookingValue;
-    private String customerId;
 
     public Contract() {}
 
-    public Contract(String contractNumber, String bookingCode, int deposit, int totalBookingValue, String customerId) {
+    public Contract(String contractNumber, Booking booking, int deposit, int totalBookingValue) {
         this.contractNumber = contractNumber;
-        this.bookingCode = bookingCode;
+        this.booking = booking;
         this.deposit = deposit;
         this.totalBookingValue = totalBookingValue;
-        this.customerId = customerId;
     }
 
     public String getContractNumber() {
@@ -25,12 +23,12 @@ public class Contract {
         this.contractNumber = contractNumber;
     }
 
-    public String getBookingCode() {
-        return bookingCode;
+    public Booking getBookingCode() {
+        return booking;
     }
 
-    public void setBookingCode(String bookingCode) {
-        this.bookingCode = bookingCode;
+    public void setBookingCode(Booking booking) {
+        this.booking = booking;
     }
 
     public int getDeposit() {
@@ -49,11 +47,15 @@ public class Contract {
         this.totalBookingValue = totalBookingValue;
     }
 
-    public String getCustomerId() {
-        return customerId;
-    }
 
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
+
+    @Override
+    public String toString() {
+        return "Contract{" +
+                "contractNumber='" + contractNumber + '\'' +
+                ", booking=" + booking +
+                ", deposit=" + deposit +
+                ", totalBookingValue=" + totalBookingValue +
+                '}';
     }
 }

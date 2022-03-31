@@ -17,4 +17,11 @@ public class Room extends Facility{
     public void setComplimentaryService(String complimentaryService) {
         this.complimentaryService = complimentaryService;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "complimentaryService='" + complimentaryService + '\'' +
+                '}';
+    }
 }

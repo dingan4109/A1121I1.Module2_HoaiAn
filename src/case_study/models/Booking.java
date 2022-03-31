@@ -1,24 +1,20 @@
 package case_study.models;
 
-import java.util.Date;
-
-public class Booking {
+public class Booking{
     private String bookingCode;
-    private Date checkIn;
-    private Date checkOut;
-    private String customerId;
-    private String service;
-    private String serviceType;
+    private String checkIn;
+    private String checkOut;
+    private Customer customer;
+    private Facility service;
 
     public Booking() {}
 
-    public Booking(String bookingCode, Date checkIn, Date checkOut, String customerId, String service, String serviceType) {
+    public Booking(String bookingCode, String checkIn, String checkOut, Customer customer, Facility service) {
         this.bookingCode = bookingCode;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
-        this.customerId = customerId;
+        this.customer = customer;
         this.service = service;
-        this.serviceType = serviceType;
     }
 
     public String getBookingCode() {
@@ -29,43 +25,47 @@ public class Booking {
         this.bookingCode = bookingCode;
     }
 
-    public Date getCheckIn() {
+    public String getCheckIn() {
         return checkIn;
     }
 
-    public void setCheckIn(Date checkIn) {
+    public void setCheckIn(String checkIn) {
         this.checkIn = checkIn;
     }
 
-    public Date getCheckOut() {
+    public String getCheckOut() {
         return checkOut;
     }
 
-    public void setCheckOut(Date checkOut) {
+    public void setCheckOut(String checkOut) {
         this.checkOut = checkOut;
     }
 
-    public String getCustomerId() {
-        return customerId;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
-    public String getService() {
+    public Facility getService() {
         return service;
     }
 
-    public void setService(String service) {
+    public void setService(Facility service) {
         this.service = service;
     }
 
-    public String getServiceType() {
-        return serviceType;
-    }
 
-    public void setServiceType(String serviceType) {
-        this.serviceType = serviceType;
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "bookingCode='" + bookingCode + '\'' +
+                ", checkIn='" + checkIn + '\'' +
+                ", checkOut='" + checkOut + '\'' +
+                ", customerId='" + customer + '\'' +
+                ", service='" + service + '\'' +
+                '}';
     }
 }

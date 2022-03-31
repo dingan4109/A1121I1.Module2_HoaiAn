@@ -1,11 +1,12 @@
 package case_study.controllers;
 
-import case_study.services.EmployeeService;
-import case_study.services.EmployeeServiceImpl;
+import case_study.services.*;
 
 import java.util.Scanner;
 
 public class FuramaController {
+
+    static Scanner input = new Scanner(System.in);
 
     public static final String DISPLAY_LIST_EMPLOYEES = "1. Display list employees";
     public static final String ADD_NEW_EMPLOYEE = "2. Add new employee";
@@ -53,36 +54,117 @@ public class FuramaController {
             }
     }
 
-    private static void promotionManagementMenu() {
+    public static void promotionManagementMenu() {
         System.out.println(DISPLAY_LIST_CUSTOMERS_USE_SERVICE);
         System.out.println(DISPLAY_LIST_CUSTOMERS_GET_VOICHER);
         System.out.println(RETURN_MAIN_MENU3);
     }
 
-    private static void bookingManagementMenu() {
-        System.out.println(ADD_NEW_BOOKING);
-        System.out.println(DISPLAY_LIST_BOOKING);
-        System.out.println(CREATE_NEW_CONTRACT);
-        System.out.println(DISPLAY_LIST_CONTRACTS);
-        System.out.println(EDIT_CONTRACTS);
-        System.out.println(RETURN_TO_MAIN_MENU);
+    public static void bookingManagementMenu() {
+        BookingService bookingService = new BookingServiceImpl();
+        ContractService contractService = new ContractServiceImpl();
+
+        int choose = 6;
+        do{
+            System.out.println(ADD_NEW_BOOKING);
+            System.out.println(DISPLAY_LIST_BOOKING);
+            System.out.println(CREATE_NEW_CONTRACT);
+            System.out.println(DISPLAY_LIST_CONTRACTS);
+            System.out.println(EDIT_CONTRACTS);
+            System.out.println(RETURN_TO_MAIN_MENU);
+
+            System.out.println("Input your choose");
+            choose = input.nextInt();
+            switch (choose) {
+                case 1:
+                    bookingService.addNew();
+                    break;
+                case 2:
+                    bookingService.displayList();
+                    break;
+                case 3:
+                    contractService.addNew();
+                    break;
+                case 4:
+                    contractService.displayList();
+                    break;
+                case 5:
+                    contractService.edit();
+                    break;
+                case 6:
+                    check();
+                    break;
+                default:
+                    System.out.println("Input again");
+            }
+        }while (choose!=6);
     }
 
-    private static void facilityManagementMenu() {
-        System.out.println(DISPLAY_LIST_FACILITY);
-        System.out.println(ADD_NEW_FACILITY);
-        System.out.println(DISPLAY_LIST_FACILITY_MAINTENANCE);
-        System.out.println(RETURN_MAIN_MENU2);
+    public static void facilityManagementMenu() {
+        FacilityService facilityService = new FacilityServiceImpl();
+        int choose = 4;
+        do{
+            System.out.println(DISPLAY_LIST_FACILITY);
+            System.out.println(ADD_NEW_FACILITY);
+            System.out.println(DISPLAY_LIST_FACILITY_MAINTENANCE);
+            System.out.println(RETURN_MAIN_MENU2);
+
+            System.out.println("Input your choose");
+            choose = input.nextInt();
+
+            switch (choose) {
+                case 1:
+                    facilityService.displayList();
+                    break;
+                case 2:
+                    facilityService.addNew();
+                    break;
+                case 3:
+                    facilityService.displayListMaintenance();
+                    break;
+                case 4:
+                    check();
+                    break;
+                default:
+                    System.out.println("Choose again");
+            }
+        } while (choose!=4);
+
     }
 
-    private static void customerManagementMenu() {
-        System.out.println(DISPLAY_LIST_CUSTOMERS);
-        System.out.println(ADD_NEW_CUSTOMER);
-        System.out.println(EDIT_CUSTOMER);
-        System.out.println(RETURN_MAIN_MENU1);
+    public static void customerManagementMenu() {
+        CustomerService customerService = new CustomerServiceImpl();
+        int choose= 4;
+        do{
+            System.out.println(DISPLAY_LIST_CUSTOMERS);
+            System.out.println(ADD_NEW_CUSTOMER);
+            System.out.println(EDIT_CUSTOMER);
+            System.out.println(RETURN_MAIN_MENU1);
+
+            System.out.println("Input your choose");
+            choose = input.nextInt();
+
+            switch (choose) {
+                case 1:
+                    customerService.displayList();
+                    break;
+                case 2:
+                    customerService.addNew();
+                    break;
+                case 3:
+                    customerService.edit();
+                    break;
+                case 4:
+                    check();
+                    break;
+                default:
+                    System.out.println("Input again");
+            }
+        } while(choose != 4);
+
     }
 
-    private static void employeeManagementMenu() {
+    public static void employeeManagementMenu() {
         //DI
         EmployeeService employeeService = new EmployeeServiceImpl();
         int choose = 4;
@@ -91,7 +173,8 @@ public class FuramaController {
             System.out.println(ADD_NEW_EMPLOYEE);
             System.out.println(EDIT_EMPLOYEE);
             System.out.println(RETURN_MAIN_MENU);
-            Scanner input = new Scanner(System.in);
+
+            System.out.println("Input your choose");
             choose = input.nextInt();
             switch (choose) {
                 case 1:
@@ -119,7 +202,6 @@ public class FuramaController {
     }
 
     public static void check() {
-        Scanner input = new Scanner(System.in);
         int choose = 6;
         do{
             System.out.println("1. Display list employees");
