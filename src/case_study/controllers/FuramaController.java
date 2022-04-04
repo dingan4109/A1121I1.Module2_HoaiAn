@@ -55,9 +55,31 @@ public class FuramaController {
     }
 
     public static void promotionManagementMenu() {
-        System.out.println(DISPLAY_LIST_CUSTOMERS_USE_SERVICE);
-        System.out.println(DISPLAY_LIST_CUSTOMERS_GET_VOICHER);
-        System.out.println(RETURN_MAIN_MENU3);
+        PromotionService promotionService = new PromotionServiceImpl();
+        int choose = 3;
+        do{
+            System.out.println(DISPLAY_LIST_CUSTOMERS_USE_SERVICE);
+            System.out.println(DISPLAY_LIST_CUSTOMERS_GET_VOICHER);
+            System.out.println(RETURN_MAIN_MENU3);
+
+            System.out.println("Input your choose");
+            choose = input.nextInt();
+
+            switch (choose){
+                case 1:
+                    promotionService.displayCustomerUseService();
+                    break;
+                case 2:
+                    promotionService.displayCustomerGetVoucher();
+                    break;
+                case 3:
+                    check();
+                    break;
+                default:
+                    System.out.println("Input again");
+            }
+        }while(choose != 3);
+
     }
 
     public static void bookingManagementMenu() {
