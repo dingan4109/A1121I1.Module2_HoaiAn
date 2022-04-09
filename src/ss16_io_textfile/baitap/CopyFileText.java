@@ -28,19 +28,29 @@ public class CopyFileText {
     }
 
     public void copySrcFile(String filepath, List<String> str) {
+        File file = null;
+        BufferedWriter bw = null;
         try {
-            File file = new File(filepath);
-            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            file = new File(filepath);
+            bw = new BufferedWriter(new FileWriter(file));
+
+            int sum = 0;
 
             for(String line : str) {
+                sum += line.length(); //exclude \n
                 bw.write(line);
                 bw.newLine();
             }
-            bw.close();
+            System.out.println(sum);
         } catch (IOException e) {
             e.printStackTrace();
+        }finally {
+            try {
+                bw.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-
 
     }
 
