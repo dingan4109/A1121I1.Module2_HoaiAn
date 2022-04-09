@@ -1,9 +1,11 @@
 package case_study.models;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class Employee extends Person{
+public class Employee extends Person implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String educationLevel;
     private String position;
 //    private BigDecimal salary; REFERENCE FOR NOW ONLY
@@ -57,8 +59,8 @@ public class Employee extends Person{
 
     @Override
     public String toString() {
-        return super.toString() + "Employee{" +
-                "educationLevel='" + educationLevel + '\'' +
+        return super.toString() +
+                ", educationLevel='" + educationLevel + '\'' +
                 ", position='" + position + '\'' +
                 ", salary=" + salary +
                 '}';

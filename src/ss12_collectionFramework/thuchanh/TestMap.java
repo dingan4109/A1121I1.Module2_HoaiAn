@@ -14,7 +14,7 @@ public class TestMap {
         hashMap.put("Cook", 29);
 
         System.out.println("Display entries in hashmap");
-        System.out.println(hashMap);
+        System.out.println(hashMap); //HashMap hiển thị lộn xộn thứ tự
 
         //TREE MAP
         //ASCENDING ORDER by default
@@ -24,9 +24,9 @@ public class TestMap {
 
         //DESCENDING ORDER using Collections reverseOrder()
         Map<String, Integer> treeMap1 = new TreeMap<>(Collections.reverseOrder());
-        treeMap.putAll(hashMap);
+        treeMap1.putAll(hashMap);
         System.out.println("Display entries in descending order of key");
-        System.out.println(treeMap);
+        System.out.println(treeMap1);
 
         //LINKED HASH MAP
         Map<String, Integer> linkedHashMap = new LinkedHashMap<>(16,0.75f,true); //recheck
@@ -35,5 +35,6 @@ public class TestMap {
         linkedHashMap.put("Lewis", 29);
         linkedHashMap.put("Cook", 29);
         System.out.println("The age for Lewis is " + linkedHashMap.get("Lewis"));
+        System.out.println(linkedHashMap);//LinkedHashMap hiển thị theo thứ tự chèn vào
     }
 }

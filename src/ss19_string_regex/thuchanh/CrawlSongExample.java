@@ -1,17 +1,21 @@
 package ss19_string_regex.thuchanh;
 
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Scanner;
 
 public class CrawlSongExample {
     public static void main(String[] args) {
+        URL url;
+//        Reader file;
         try{
-            URL url = new URL("");
-            BufferedInputStream br = new BufferedInputStream(new FileInputStream(url.openStream()))
+            url = new URL("");
+//            file = new InputStreamReader(url.openStream());
+            Scanner scanner = new Scanner(new InputStreamReader(url.openStream()));
+            scanner.useDelimiter("\\Z");
+            String content = scanner.next();
+            scanner.close();
         }catch (MalformedURLException e) {
             e.printStackTrace();
         }catch (UnsupportedEncodingException e) {

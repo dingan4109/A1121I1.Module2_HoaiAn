@@ -50,7 +50,7 @@ public class FuramaController {
                 case 6:
                     System.exit(6);
                 default:
-                    System.out.println("Please choose again");
+                    System.out.println("Choose again");
             }
     }
 
@@ -63,7 +63,11 @@ public class FuramaController {
             System.out.println(RETURN_MAIN_MENU3);
 
             System.out.println("Input your choose");
-            choose = input.nextInt();
+            try{
+                choose = Integer.parseInt(input.nextLine());
+            }catch (NumberFormatException e){
+                System.out.println("Input wrong data type");
+            }
 
             switch (choose){
                 case 1:
@@ -76,7 +80,7 @@ public class FuramaController {
                     check();
                     break;
                 default:
-                    System.out.println("Input again");
+                    System.out.println("Choose again");
             }
         }while(choose != 3);
 
@@ -96,7 +100,12 @@ public class FuramaController {
             System.out.println(RETURN_TO_MAIN_MENU);
 
             System.out.println("Input your choose");
-            choose = input.nextInt();
+            try{
+                choose = Integer.parseInt(input.nextLine());
+
+            }catch (NumberFormatException e) {
+                System.out.println("Input wrong data type");
+            }
             switch (choose) {
                 case 1:
                     bookingService.addNew();
@@ -117,8 +126,9 @@ public class FuramaController {
                     check();
                     break;
                 default:
-                    System.out.println("Input again");
+                    System.out.println("Choose again");
             }
+
         }while (choose!=6);
     }
 
@@ -132,7 +142,11 @@ public class FuramaController {
             System.out.println(RETURN_MAIN_MENU2);
 
             System.out.println("Input your choose");
-            choose = input.nextInt();
+            try{
+                choose = Integer.parseInt(input.nextLine());
+            }catch (NumberFormatException e) {
+                System.out.println("Input wrong data type");
+            }
 
             switch (choose) {
                 case 1:
@@ -150,6 +164,7 @@ public class FuramaController {
                 default:
                     System.out.println("Choose again");
             }
+
         } while (choose!=4);
 
     }
@@ -164,7 +179,12 @@ public class FuramaController {
             System.out.println(RETURN_MAIN_MENU1);
 
             System.out.println("Input your choose");
-            choose = input.nextInt();
+
+            try{
+                choose = Integer.parseInt(input.nextLine());
+            }catch (NumberFormatException e) {
+                System.out.println("Input wrong data type");
+            }
 
             switch (choose) {
                 case 1:
@@ -180,8 +200,9 @@ public class FuramaController {
                     check();
                     break;
                 default:
-                    System.out.println("Input again");
+                    System.out.println("Choose again");
             }
+
         } while(choose != 4);
 
     }
@@ -197,7 +218,13 @@ public class FuramaController {
             System.out.println(RETURN_MAIN_MENU);
 
             System.out.println("Input your choose");
-            choose = input.nextInt();
+
+            try{
+                choose = Integer.parseInt(input.nextLine());
+            }catch (NumberFormatException e) {
+                System.out.println("Input wrong data type");
+            }
+
             switch (choose) {
                 case 1:
                     employeeService.displayList();
@@ -212,7 +239,7 @@ public class FuramaController {
                     check();
                     break;
                 default:
-                    System.out.println("Input again");
+                    System.out.println("Choose again");
             }
         }while(choose != 4);
 
@@ -233,8 +260,15 @@ public class FuramaController {
             System.out.println("5. Promotion Management");
             System.out.println("6.Exit");
             System.out.println("\nPlease choose function");
-            choose = input.nextInt();
+
+            try{
+                choose = Integer.parseInt(input.nextLine());
+            }catch (NumberFormatException e) {
+                System.out.println("Input wrong data type");
+            }
+
             displayMainMenu(choose);
+
         } while(choose != 6);
     }
 }

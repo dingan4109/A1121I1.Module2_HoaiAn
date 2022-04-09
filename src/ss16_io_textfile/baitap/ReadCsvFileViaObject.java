@@ -3,17 +3,19 @@ package ss16_io_textfile.baitap;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ReadCsvFileViaObject {
     public static List<Countries> readCsvFile(String filepath) {
         List<Countries> list = new ArrayList<>();
+        BufferedReader br = null;
 
         try{
             File file = new File(filepath);
 
-            BufferedReader br = new BufferedReader(new FileReader(file));
+            br = new BufferedReader(new FileReader(file));
             String line = null;
             while((line = br.readLine()) != null) {
                 final String COMMA = ",";
@@ -27,6 +29,12 @@ public class ReadCsvFileViaObject {
             br.close();
         }catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            try {
+                br.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         return list;
