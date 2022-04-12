@@ -36,9 +36,12 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public void displayList() {
-        for (Booking booking : bookingList) {
-            System.out.println(booking.toString());
-        }
+//        for (Booking booking : bookingList) {
+//            System.out.println(booking.toString());
+//        }
+
+        ReadAndWrite.readTextFileString("E:\\A1121I1\\Module2\\A1121I1.Module2_HoaiAn\\src\\case_study\\data\\booking" +
+                ".csv");
     }
 
     public void displayMaintenanceList() {

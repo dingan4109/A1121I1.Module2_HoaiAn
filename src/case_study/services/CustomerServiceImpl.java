@@ -2,6 +2,7 @@ package case_study.services;
 
 import case_study.models.Customer;
 import case_study.utils.ReadAndWrite;
+import case_study.utils.Regex;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -25,6 +26,11 @@ public class CustomerServiceImpl implements CustomerService {
 
             System.out.println("Input birthday: ");
             String birthday = input.nextLine();
+            while(!Regex.dateValidate(birthday)) {
+                System.out.println("Input again");
+                birthday = input.nextLine();
+            }
+            Regex.birthdayCheck(birthday);
 
             System.out.println("Input gender: ");
             String gender = input.nextLine();
@@ -53,9 +59,11 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void displayList() {
-        for (Customer customer : customerList) {
-            System.out.println(customer.toString());
-        }
+//        for (Customer customer : customerList) {
+//            System.out.println(customer.toString());
+//        }
+        ReadAndWrite.readTextFileString("E:\\A1121I1\\Module2\\A1121I1.Module2_HoaiAn\\src\\case_study\\data\\customer" +
+                ".csv");
     }
 
     @Override

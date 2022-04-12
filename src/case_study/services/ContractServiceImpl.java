@@ -2,6 +2,7 @@ package case_study.services;
 
 import case_study.models.Booking;
 import case_study.models.Contract;
+import case_study.utils.ReadAndWrite;
 
 import java.util.*;
 
@@ -15,9 +16,12 @@ public class ContractServiceImpl implements ContractService {
 
     @Override
     public void displayList() {
-        for (Contract contract : contractList) {
-            System.out.println(contract.toString());
-        }
+//        for (Contract contract : contractList) {
+//            System.out.println(contract.toString());
+//        }
+
+        ReadAndWrite.readTextFileString("E:\\A1121I1\\Module2\\A1121I1.Module2_HoaiAn\\src\\case_study\\data\\contract" +
+                ".csv");
     }
 
     @Override
@@ -41,6 +45,7 @@ public class ContractServiceImpl implements ContractService {
 
             Contract contract = new Contract(contractNumber, booking, deposit, totalBookingValue);
             contractList.add(contract);
+            ReadAndWrite.writeTextFile("E:\\A1121I1\\Module2\\A1121I1.Module2_HoaiAn\\src\\case_study\\data\\contract.csv");
         } catch (Exception e) {
             System.out.println("Input wrong data");
         }

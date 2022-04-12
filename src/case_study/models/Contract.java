@@ -23,11 +23,11 @@ public class Contract {
         this.contractNumber = contractNumber;
     }
 
-    public Booking getBookingCode() {
+    public Booking getBooking() {
         return booking;
     }
 
-    public void setBookingCode(Booking booking) {
+    public void setBooking(Booking booking) {
         this.booking = booking;
     }
 

@@ -2,6 +2,7 @@ package case_study.services;
 
 import case_study.models.Employee;
 import case_study.utils.ReadAndWrite;
+import case_study.utils.Regex;
 
 import java.util.*;
 
@@ -23,6 +24,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 
             System.out.println("Input birthday: ");
             String birthday = input.nextLine();
+            while(!Regex.dateValidate(birthday)) {
+                System.out.println("Input again");
+                birthday = input.nextLine();
+            }
+            Regex.birthdayCheck(birthday);
 
             System.out.println("Input gender: ");
             String gender = input.nextLine();
@@ -55,21 +61,18 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void displayList() {
-//        employeeList = (List<Employee>) ReadAndWrite.readFile("E:\\A1121I1\\Module2\\A1121I1" +
-//                ".Module2_HoaiAn\\src\\case_study\\data\\employee" +
-//                ".csv");
-        employeeList = ReadAndWrite.readTextFile("E:\\A1121I1\\Module2\\A1121I1" +
+//        employeeList = (List<Employee>) ReadAndWrite.readBinaryFile("E:\\A1121I1\\Module2\\A1121I1" +
+//                ".Module2_HoaiAn\\src\\case_study\\data\\employee.csv");
+        ReadAndWrite.readTextFileString("E:\\A1121I1\\Module2\\A1121I1" +
                 ".Module2_HoaiAn\\src\\case_study\\data\\employee.csv");
-        for (Employee i : employeeList) {
-            System.out.println(i.toString());
-        }
     }
 
     @Override
     public void addNew() {
         Employee employee = getEmployee();
         employeeList.add(employee);
-//        ReadAndWrite.writeFile("E:\\A1121I1\\Module2\\A1121I1.Module2_HoaiAn\\src\\case_study\\data\\employee.csv",
+//        ReadAndWrite.writeBinaryFile("E:\\A1121I1\\Module2\\A1121I1.Module2_HoaiAn\\src\\case_study\\data\\employee" +
+//            ".csv",
 //                employeeList);
         ReadAndWrite.writeTextFile("E:\\A1121I1\\Module2\\A1121I1.Module2_HoaiAn\\src\\case_study\\data\\employee" +
                 ".csv");

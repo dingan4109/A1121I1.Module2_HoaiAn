@@ -5,14 +5,32 @@ import case_study.models.Facility;
 import case_study.models.House;
 import case_study.models.Room;
 import case_study.models.Villa;
+import case_study.utils.ReadAndWrite;
+import case_study.utils.Regex;
 
 import java.util.*;
 
 public class FacilityServiceImpl implements FacilityService {
     public static final int VILLA = 1;
     public static final int HOUSE = 2;
+    public static final int ROOM = 3;
     static Scanner input = new Scanner(System.in);
     private static Map<Facility, Integer> facilityServiceList = new LinkedHashMap<>();
+    static List<Villa> villas = new ArrayList<>();
+    static List<House> houses = new ArrayList<>();
+    static List<Room> rooms = new ArrayList<>();
+
+    public static List<Villa> getVillas() {
+        return villas;
+    }
+
+    public static List<House> getHouses() {
+        return houses;
+    }
+
+    public static List<Room> getRooms() {
+        return rooms;
+    }
 
     @Override
     public void displayListMaintenance() {
@@ -34,44 +52,102 @@ public class FacilityServiceImpl implements FacilityService {
             System.out.println("Input service name");
             String serviceName = input.nextLine();
 
+            switch (choose) {
+                case VILLA:
+                    while(!Regex.villaValidate(serviceName)) {
+                        System.out.println("Input villa code");
+                        serviceName = input.nextLine();
+                    }
+                    break;
+                case HOUSE:
+                    while(!Regex.houseValidate(serviceName)) {
+                        System.out.println("Input house code");
+                        serviceName = input.nextLine();
+                    }
+                    break;
+                case ROOM:
+                    while(!Regex.roomValidate(serviceName)) {
+                        System.out.println("Input room code");
+                        serviceName = input.nextLine();
+                    }
+                    break;
+            }
+
+
             System.out.println("Input used Area");
             double usedArea = Double.parseDouble(input.nextLine());
+            Regex.areaValidate(usedArea);
 
             System.out.println("Input rate");
             double rate = Double.parseDouble(input.nextLine());
+            Regex.rateValidate(rate);
 
             System.out.println("Input standard quantity");
             int standardQuantity = Integer.parseInt(input.nextLine());
+            Regex.standardQuantityValidate(standardQuantity);
 
             System.out.println("Input rental type");
             String rentalType = input.nextLine();
+            while(!Regex.nameValidate(rentalType)) {
+                System.out.println("Input again");
+                rentalType = input.nextLine();
+            }
 
             if (choose == VILLA) {
                 System.out.println("Input room standard");
                 String roomStandard = input.nextLine();
+                while(!Regex.nameValidate(roomStandard)) {
+                    System.out.println("Input again");
+                    roomStandard = input.nextLine();
+                }
 
                 System.out.println("Input pool area");
                 double poolArea = Double.parseDouble(input.nextLine());
+                Regex.areaValidate(poolArea);
 
                 System.out.println("Input floor number");
                 int floorNumber = Integer.parseInt(input.nextLine());
+                Regex.floorValidate(floorNumber);
 
-                return new Villa(serviceName, usedArea, rate, standardQuantity, rentalType, roomStandard, poolArea,
+                Villa villa = new Villa(serviceName, usedArea, rate, standardQuantity, rentalType, roomStandard,
+                        poolArea,
                         floorNumber);
+
+                villas.add(villa);
+                ReadAndWrite.writeTextFile("E:\\A1121I1\\Module2\\A1121I1" +
+                        ".Module2_HoaiAn\\src\\case_study\\data\\villa.csv");
+                return villa;
+
             } else if (choose == HOUSE) {
                 System.out.println("Input room standard");
                 String roomStandard = input.nextLine();
+                while(!Regex.nameValidate(roomStandard)) {
+                    System.out.println("Input again");
+                    roomStandard = input.nextLine();
+                }
 
                 System.out.println("Input floor number");
                 int floorNumber = Integer.parseInt(input.nextLine());
+                Regex.floorValidate(floorNumber);
 
-                return new House(serviceName, usedArea, rate, standardQuantity, rentalType, roomStandard,
+                House house = new House(serviceName, usedArea, rate, standardQuantity, rentalType, roomStandard,
                         floorNumber);
+
+                houses.add(house);
+                ReadAndWrite.writeTextFile("E:\\A1121I1\\Module2\\A1121I1" +
+                        ".Module2_HoaiAn\\src\\case_study\\data\\house.csv");
+                return house;
+
             } else {//ROOM
                 System.out.println("Input complimentary service");
                 String complimentaryService = input.nextLine();
 
-                return new Room(serviceName, usedArea, rate, standardQuantity, rentalType, complimentaryService);
+                Room room = new Room(serviceName, usedArea, rate, standardQuantity, rentalType, complimentaryService);
+
+                rooms.add(room);
+                ReadAndWrite.writeTextFile("E:\\A1121I1\\Module2\\A1121I1.Module2_HoaiAn\\src\\case_study\\data\\room" +
+                        ".csv");
+                return room;
             }
         } catch (Exception e) {
             System.out.println("Input wrong data type");

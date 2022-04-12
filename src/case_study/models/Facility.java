@@ -29,12 +29,12 @@ public abstract class Facility {
         this.serviceName = serviceName;
     }
 
-    public double getUsedAre() {
+    public double getUsedArea() {
         return usedArea;
     }
 
-    public void setUsedAre(double usedAre) {
-        this.usedArea = usedAre;
+    public void setUsedArea(double usedArea) {
+        this.usedArea = usedArea;
     }
 
     public double getRate() {
