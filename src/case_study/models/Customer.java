@@ -43,4 +43,18 @@ public class Customer extends Person{
                 ", type='" + type + '\'' +
                 ", address='" + address + '\'';
     }
+
+    public String[] toStringArray() {
+        String[] line = new String[9];
+        line[0] = getId();
+        line[1] = getFullName();
+        line[2] = getBirthday();
+        line[3] = getGender();
+        line[4] = getIdCardNumber() + "";
+        line[5] = getPhoneNumber() + "";
+        line[6] = getEmail();
+        line[7] = getType();
+        line[8] = getAddress();
+        return line;
+    }
 }

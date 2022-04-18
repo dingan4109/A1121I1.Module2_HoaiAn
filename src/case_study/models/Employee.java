@@ -65,4 +65,19 @@ public class Employee extends Person implements Serializable {
                 ", salary=" + salary +
                 '}';
     }
+
+    public String[] toStringArray() {
+        String[] entity = new String[10];
+        entity[0] = getId();
+        entity[1] = getFullName();
+        entity[2] = getBirthday();
+        entity[3] = getGender();
+        entity[4] = getIdCardNumber() + "";
+        entity[5] = getPhoneNumber() + "";
+        entity[6] = getEmail();
+        entity[7] = getEducationLevel();
+        entity[8] = getPosition();
+        entity[9] = getSalary() + "";
+        return entity;
+    }
 }

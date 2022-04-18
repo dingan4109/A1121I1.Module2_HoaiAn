@@ -1,16 +1,18 @@
 package case_study.services;
 
+import case_study.Test;
 import case_study.models.Customer;
 import case_study.utils.ReadAndWrite;
 import case_study.utils.Regex;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
 public class CustomerServiceImpl implements CustomerService {
     static Scanner input = new Scanner(System.in);
-    static List<Customer> customerList = new LinkedList<>();
+    static List<Customer> customerList = null;
 
     public static List<Customer> getCustomerList() {
         return customerList;
@@ -57,41 +59,106 @@ public class CustomerServiceImpl implements CustomerService {
         return null;
     }
 
-    @Override
-    public void displayList() {
-//        for (Customer customer : customerList) {
-//            System.out.println(customer.toString());
-//        }
-        ReadAndWrite.readTextFileString("E:\\A1121I1\\Module2\\A1121I1.Module2_HoaiAn\\src\\case_study\\data\\customer" +
+    public void loadDataFromFile() {
+        List<String[]> listToRead = Test.read("E:\\A1121I1\\Module2\\A1121I1" +
+                ".Module2_HoaiAn\\src\\case_study\\data\\customer" +
                 ".csv");
+        customerList = new ArrayList<>();
+        for(String[] line : listToRead) {
+            String id = line[0];
+            String fullName = line[1];
+            String birthday = line[2];
+            String gender = line[3];
+            int idCardNumber = Integer.parseInt(line[4]);
+            int phoneNumber = Integer.parseInt(line[5]);
+            String email = line[6];
+            String type = line[7];
+            String address = line[8];
+
+            Customer customer = new Customer(id,fullName,birthday,gender,idCardNumber,phoneNumber,email,type,address);
+            customerList.add(customer);
+        }
+    }
+
+    public void saveDataToFile() {
+        List<String[]> listToWrite = new ArrayList<>();
+        for(Customer customer : customerList) {
+            listToWrite.add(customer.toStringArray());
+        }
+
+        Test.write("E:\\A1121I1\\Module2\\A1121I1" +
+                ".Module2_HoaiAn\\src\\case_study\\data\\customer" +
+                ".csv",listToWrite);
     }
 
     @Override
+    public void displayList() {
+        loadDataFromFile();
+
+        if(customerList.isEmpty()) {
+            System.out.println("No data");
+        }else {
+            for(Customer customer : customerList) {
+                System.out.println(customer.toString());
+            }
+        }
+
+    }
+
+
+    @Override
     public void addNew() {
+        loadDataFromFile();
         Customer customer = getCustomer();
         customerList.add(customer);
-        ReadAndWrite.writeTextFile("E:\\A1121I1\\Module2\\A1121I1.Module2_HoaiAn\\src\\case_study\\data\\customer.csv");
+
+        saveDataToFile();
     }
 
 
     @Override
     public void edit() {
-        try {
-            System.out.println("Input customer id to edit");
-            String id = input.nextLine();
+        loadDataFromFile();
+        System.out.println("Input customer id to edit");
+        String checkId = input.nextLine();
 
-            for (int i = 0; i < customerList.size(); i++) {
-                if (customerList.get(i).getId().equals(id)) {
-                    System.out.println("Start input new information");
-                    Customer customer = getCustomer();
-
-                    customerList.set(i, customer);
-                    ReadAndWrite.writeTextFile("E:\\A1121I1\\Module2\\A1121I1.Module2_HoaiAn\\src\\case_study\\data\\customer.csv");
-                }
+        boolean isFound = false;
+        for(int i = 0; i < customerList.size();i++) {
+            if(customerList.get(i).getId().equals(checkId)) {
+                isFound = true;
+                System.out.println("Input update data");
+                Customer customer = getCustomer();
+                customerList.set(i,customer);
+                break;
             }
-        } catch (Exception e) {
-            System.out.println("Input wrong data type");
         }
 
+        if(!isFound) {
+            System.out.println("Customer is not found");
+        }
+
+        saveDataToFile();
+
+    }
+
+    public void delete() {
+        loadDataFromFile();
+        System.out.println("Input customer id to delete");
+        String checkId = input.nextLine();
+
+        boolean isFound = false;
+        for(int i = 0;i<customerList.size();i++) {
+            if(customerList.get(i).getId().equals(checkId)) {
+                isFound = true;
+                customerList.remove(i);
+                System.out.println("Delete successfully");
+                break;
+            }
+        }
+        if(!isFound) {
+            System.out.println("Customer is not found");
+        }
+
+        saveDataToFile();
     }
 }

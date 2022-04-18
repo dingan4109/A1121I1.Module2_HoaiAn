@@ -15,6 +15,7 @@ public class Regex {
     private static final String DATE = "^(0?[1-9]|[1-2]\\d|3[0-1])/(0?[1-9]|1[0-2])/[1-9]\\d{3}$";
 
 
+
     public Regex() {
     }
 

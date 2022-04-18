@@ -13,7 +13,7 @@ public class ReadAndWrite {
     public static void writeTextFile(String filepath) {
         BufferedWriter bufferedWriter = null;
         try {
-            bufferedWriter = new BufferedWriter(new FileWriter(filepath));
+            bufferedWriter = new BufferedWriter(new FileWriter(filepath, true));
 
             if (filepath.contains("employee.csv")) {
                 List<Employee> list = EmployeeServiceImpl.getEmployeeList();
@@ -80,6 +80,40 @@ public class ReadAndWrite {
         }
     }
 
+    public static void writeDataToFile(String filepath, List<String[]> data) {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filepath))) {
+            for (String[] str: data) {
+                for(int i = 0; i < str.length; i++) {
+                    if (i != 0) {
+                        bufferedWriter.write(SEPERATOR);
+                    }
+                    bufferedWriter.write(str[i]);
+                }
+                bufferedWriter.newLine();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static List<String[]> readDataFromFile(String filepath) {
+        List<String[]> results = new ArrayList<>();
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filepath))) {
+            String line = null;
+            String values[];
+            while ((line = bufferedReader.readLine()) != null && !line.equals("")) {
+                values = line.split(SEPERATOR);
+                results.add(values);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return results;
+    }
+
+
+
     public static Collection readTextFile(String filepath) {
         BufferedReader bufferedReader = null;
         try {
@@ -122,6 +156,8 @@ public class ReadAndWrite {
                     int idCardNumber = Integer.parseInt(values[4]);
                     int phoneNumber = Integer.parseInt(values[5]);
                     String email = values[6];
+
+
                     String type = values[7];
                     String address = values[8];
 
@@ -207,12 +243,12 @@ public class ReadAndWrite {
         }
     }
 
-    public static Collection readBinaryFile(String filepath) {
+    public static Object readBinaryFile(String filepath) {
         ObjectInputStream stream = null;
-        Collection obj = null;
+        Object obj = null;
         try {
             stream = new ObjectInputStream(new FileInputStream(filepath));
-            obj = (Collection) stream.readObject();
+            obj = stream.readObject();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -224,4 +260,68 @@ public class ReadAndWrite {
         }
         return obj;
     }
+
+    //TEST
+    public static void Test(String filepath, String line) {
+        BufferedWriter bufferedWriter = null;
+        try{
+            bufferedWriter = new BufferedWriter(new FileWriter(filepath, true));
+            bufferedWriter.write(line);
+            bufferedWriter.newLine();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                bufferedWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void write(String filepath, String line) {
+        BufferedWriter bufferedWriter = null;
+        try{
+            bufferedWriter = new BufferedWriter(new FileWriter(filepath, true));
+            bufferedWriter.write(line);
+            bufferedWriter.newLine();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                bufferedWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+//    public static Collection read(String filepath) {
+//        BufferedReader bufferedReader = null;
+//        Collection list =
+//    }
+
+
+    public static List<String[]> read1(String filepath) {
+        BufferedReader bufferedReader = null;
+        List<String[]> list = new ArrayList<>();
+        try {
+            bufferedReader = new BufferedReader(new FileReader(filepath));
+            String line = null;
+            while((line = bufferedReader.readLine()) != null && line.equals("")) {
+                String[] elementLine = line.split(",");
+                list.add(elementLine);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                bufferedReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return list;
+    }
+
 }

@@ -12,6 +12,12 @@ public class FuramaController {
     public static final String ADD_NEW_EMPLOYEE = "2. Add new employee";
     public static final String EDIT_EMPLOYEE = "3. Edit Employee";
     public static final String RETURN_MAIN_MENU = "4. Return main menu";
+
+    public static final String EMPLOYEE_MENU =
+            "1. Display list employees\n" +
+            "2. Add new employee\n" +
+            "3. Edit Employee\n" +
+            "4. Return main menu";
     public static final String DISPLAY_LIST_CUSTOMERS = "1. Display list customers";
     public static final String ADD_NEW_CUSTOMER = "2. Add new customer";
     public static final String EDIT_CUSTOMER = "3. Edit Customer";
@@ -212,10 +218,11 @@ public class FuramaController {
         EmployeeService employeeService = new EmployeeServiceImpl();
         int choose = 4;
         do{
-            System.out.println(DISPLAY_LIST_EMPLOYEES);
-            System.out.println(ADD_NEW_EMPLOYEE);
-            System.out.println(EDIT_EMPLOYEE);
-            System.out.println(RETURN_MAIN_MENU);
+//            System.out.println(DISPLAY_LIST_EMPLOYEES);
+//            System.out.println(ADD_NEW_EMPLOYEE);
+//            System.out.println(EDIT_EMPLOYEE);
+//            System.out.println(RETURN_MAIN_MENU);
+            System.out.println(EMPLOYEE_MENU);
 
             System.out.println("Input your choose");
 
@@ -233,7 +240,7 @@ public class FuramaController {
                     employeeService.addNew();
                     break;
                 case 3:
-                    employeeService.edit();
+                    employeeService.testEdit();
                     break;
                 case 4:
                     check();
@@ -242,7 +249,6 @@ public class FuramaController {
                     System.out.println("Choose again");
             }
         }while(choose != 4);
-
 
     }
 
